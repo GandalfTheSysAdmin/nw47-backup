@@ -1,4 +1,46 @@
+#!/usr/bin/env python
+"""
+Discord Message Retriever
 
+This script retrieves new messages from all specified Discord channels listed in the
+`CHANNELS` dictionary in `channels.py` using the Discord API. The script processes
+each channel, retrieves the content, author, and timestamp of new messages, and stores
+these messages in files named after each channel. Additionally, any image attachments
+found in the messages are downloaded and saved in a related folder structure. The script
+also logs its activity for auditing and troubleshooting purposes.
+
+Features:
+    - Retrieves and saves new messages from specified Discord channels.
+    - Downloads and stores image attachments in a structured directory.
+    - Logs script activity to channel-specific log files.
+    - Loads the Discord API token securely from a `.env` file.
+
+Author: GandalfTheSysAdmin
+Date: 2024-08-31
+
+Usage:
+    - The script automatically processes all channels defined in the `CHANNELS` dictionary.
+    - Messages, images, and logs are saved in directories named after each channel.
+    - Ensure that a valid Discord token is stored in the `.env` file as `DISCORD_TOKEN`.
+
+Requirements:
+    - discord: A Python wrapper for the Discord API (to interact with Discord).
+    - requests: A simple, yet elegant, HTTP library for Python.
+    - json: A built-in Python library for handling JSON data.
+    - datetime: A built-in Python module for manipulating dates and times.
+    - os: A built-in Python module for interacting with the operating system.
+    - time: A built-in Python module for adding delays.
+    - logging: A built-in Python module for logging script activity.
+    - tqdm: A library for adding a progress bar to loops.
+    - aiohttp: A library for asynchronous HTTP requests.
+    - python-dotenv: A library to load environment variables from a `.env` file.
+
+Notes:
+    - The script retrieves only new messages sent after the last fetched message.
+    - Requests are spaced out to avoid overwhelming the Discord API server.
+
+License: MIT License
+"""
 import discord
 import requests
 import json
