@@ -1,4 +1,5 @@
-iimport discord
+
+import discord
 import requests
 import json
 from datetime import datetime
