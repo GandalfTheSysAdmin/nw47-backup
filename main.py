@@ -72,7 +72,7 @@ def setup_logging(channel_name):
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
     log_file = os.path.join(log_dir, "script.log")
-
+    
     # Configure the logging format and level
     logging.basicConfig(
         filename=log_file,
