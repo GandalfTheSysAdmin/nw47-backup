@@ -1,0 +1,7 @@
+build/
+backups/
+*.pyc
+*.bkup
+dist
+main.spec
+.env
