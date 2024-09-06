@@ -18,17 +18,19 @@ Usage:
 ------
 1. Ensure that your Discord user token is set in a `.env` file with the key `DISCORD_TOKEN`.
 2. Define the channels you want to back up in the `channels.py` file as a dictionary of channel names and IDs.
-3. Run the script:
+3. Install the required dependencies:
+   $ pip install -r requirements.txt
+4. Run the script:
    $ python3 main.py
 
 Requirements:
 -------------
 - Python 3.x
-- `requests`, `tqdm`, `dotenv`, and `logging` modules (install via `pip` if necessary).
+- Dependencies listed in `requirements.txt`.
 
 Author:
 -------
-- GandalfTheSysadmin
+- GandalfTheSysAdmin
 
 Date:
 -----
