@@ -6,4 +6,4 @@ dist
 main.spec
 .env
 backup_log.txt
-
+discord_backup.log
