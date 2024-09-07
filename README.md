@@ -82,8 +82,3 @@ All script activities are logged to `discord_backup.log`. The log file uses a ro
   - `tqdm`
   - `python-dotenv`
 
-## Author
-
-- **GandalfTheSysAdmin**
-  - Associate Systems Engineer, NW47 discord server
-
