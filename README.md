@@ -53,7 +53,7 @@ The script will automatically:
 - Download any attachments (e.g., images) shared in the messages.
 - Save the results in organized directories under a `backups/` folder.
 
-![nw47-example-backup](./extras/nw47-backup-example.gif)
+![nw47-example-backup](./extras/nw47-backup-example3.gif)
 
 ## Example Directory Structure
 
