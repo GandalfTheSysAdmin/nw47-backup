@@ -3,7 +3,9 @@ Discord Channel Backup Script
 
 Description:
 ------------
-This script automates the process of backing up Discord channel messages and attachments (e.g., images) to local storage. It fetches messages from specified Discord channels, downloads any shared images, and logs them in a structured format within a backup directory.
+This script automates the process of backing up Discord channel messages and attachments
+(e.g., images) to local storage. It fetches messages from specified Discord channels, Downloads
+any shared images, and logs them in a structured format within a backup directory.
 
 Features:
 ---------
@@ -36,6 +38,7 @@ Date:
 -----
 - 2024-09-05
 """
+
 import requests
 import json
 import time
@@ -44,6 +47,7 @@ import logging
 from tqdm import tqdm
 from dotenv import load_dotenv
 from channels import CHANNELS  # Import the CHANNELS dictionary from channels.py
+from topics import TOPICS  # Import the TOPICS dictionary from topics.py
 from urllib.parse import urlparse
 from logging.handlers import RotatingFileHandler
 
@@ -91,7 +95,6 @@ def save_last_message_id(checkpoint_file, message_id):
 
 # Function to download an image from a URL and save it to the images directory
 def download_image(url, image_dir, timestamp, username, image_pbar=None):
-    # Extract the image file name from the URL and add timestamp and username to avoid overwriting
     image_ext = os.path.splitext(urlparse(url).path)[1]
     image_name = f"{timestamp}_{username}{image_ext}"
     image_path = os.path.join(image_dir, image_name)
@@ -114,7 +117,6 @@ def download_image(url, image_dir, timestamp, username, image_pbar=None):
 
 # Function to format and write messages to a text file, and check for images
 def write_messages_to_file(messages, backup_file_path, image_dir):
-    # Create a progress bar for image downloads
     image_pbar = tqdm(total=len([msg for msg in messages if msg["attachments"]]), desc="Downloading images", leave=False)
 
     with open(backup_file_path, "a", encoding="utf-8") as f:
@@ -137,39 +139,34 @@ def write_messages_to_file(messages, backup_file_path, image_dir):
                             f.write(f"[{timestamp}] {username} shared an image: images/{image_name}\n")
                             logging.info(f"Image {image_name} associated with message from {username} at {timestamp}")
 
-    # Close the image progress bar after all images are downloaded
     image_pbar.close()
 
-# Function to fetch and back up messages for a specific channel
-def fetch_and_backup_messages(channel_name, channel_id, url, headers, delay_between_requests):
-    logging.info(f"Fetching messages for channel: {channel_name} (ID: {channel_id})")
+# Function to fetch and back up messages for a specific channel or topic
+def fetch_and_backup_messages(item_name, item_id, url, headers, delay_between_requests, backup_type='channel'):
+    logging.info(f"Fetching messages for {backup_type}: {item_name} (ID: {item_id})")
 
     all_messages = []
-    backup_dir = f"backups/{channel_name}/"  # Define the backup directory using the channel name
+    backup_dir = f"backups/{backup_type}s/{item_name}/"  # Use 'channels' or 'topics' based on type
     image_dir = os.path.join(backup_dir, "images/")  # Define the images directory within the backup directory
-    checkpoint_file = f"{backup_dir}last_message_{channel_name}.txt"  # Define the checkpoint file using the channel name
-    backup_file_path = f"{backup_dir}{channel_name}_messages.txt"  # Define the text file for backup messages
+    checkpoint_file = f"{backup_dir}last_message_{item_name}.txt"  # Define the checkpoint file using the name and type
+    backup_file_path = f"{backup_dir}{item_name}_messages.txt"  # Define the text file for backup messages
     last_message_id = get_last_message_id(checkpoint_file)  # Retrieve the last saved message ID
 
     # Ensure the backup and image directories exist
     os.makedirs(backup_dir, exist_ok=True)
     os.makedirs(image_dir, exist_ok=True)
 
-    # Main progress bar for fetching messages
-    channel_pbar = tqdm(total=None, desc=f"Backing up channel {channel_name}", leave=True)
+    channel_pbar = tqdm(total=None, desc=f"Backing up {backup_type} {item_name}", leave=True)
 
     while True:
-        # Fetch messages, ensure `limit` is correctly set to 100 and passed as an integer
-        params = {
-            "limit": int(100),  # Ensure the limit is passed as an integer
-        }
+        params = {"limit": int(100)}  # Ensure the limit is passed as an integer
         if last_message_id:
             params["after"] = last_message_id  # Get only messages after the last saved one
 
         try:
             response = requests.get(url, headers=headers, params=params)
         except requests.exceptions.RequestException as e:
-            logging.error(f"Request failed for channel {channel_name}: {e}")
+            logging.error(f"Request failed for {backup_type} {item_name}: {e}")
             break
 
         if response.status_code == 200:
@@ -177,35 +174,37 @@ def fetch_and_backup_messages(channel_name, channel_id, url, headers, delay_betw
 
             # If no more messages, break the loop
             if not messages:
-                logging.info(f"No more messages to fetch for channel {channel_name}")
+                logging.info(f"No more messages to fetch for {backup_type} {item_name}")
                 break
 
             # Write messages to the text file and download images
             write_messages_to_file(messages, backup_file_path, image_dir)
 
             # Update the last message ID for pagination
-            last_message_id = messages[-1]["id"]  # Get the ID of the latest message fetched
+            last_message_id = messages[-1]["id"]
             all_messages.extend(messages)
-            channel_pbar.update(len(messages))  # Update progress bar
+            channel_pbar.update(len(messages))
 
-            # Sleep to avoid hitting rate limits
             time.sleep(delay_between_requests)
         else:
-            logging.error(f"Failed to fetch messages from {channel_name}: {response.status_code} - {response.text}")
+            logging.error(f"Failed to fetch messages from {backup_type} {item_name}: {response.status_code} - {response.text}")
             break
 
-    # Save the last fetched message ID to the checkpoint file
     if all_messages:
         save_last_message_id(checkpoint_file, all_messages[-1]["id"])
-        logging.info(f"Saved last message ID for channel {channel_name}: {all_messages[-1]['id']}")
+        logging.info(f"Saved last message ID for {backup_type} {item_name}: {all_messages[-1]['id']}")
 
-    # Close the main progress bar
     channel_pbar.close()
 
 # Loop through each channel in CHANNELS and back up the messages
 for channel_name, channel_id in CHANNELS.items():
     url = f"https://discord.com/api/v9/channels/{channel_id}/messages"
-    fetch_and_backup_messages(channel_name, channel_id, url, headers, delay_between_requests)
+    fetch_and_backup_messages(channel_name, channel_id, url, headers, delay_between_requests, backup_type='channel')
+
+# Loop through each topic in TOPICS and back up the messages
+for topic_name, topic_id in TOPICS.items():
+    url = f"https://discord.com/api/v9/channels/{topic_id}/messages"
+    fetch_and_backup_messages(topic_name, topic_id, url, headers, delay_between_requests, backup_type='topic')
 
 # Log that the script has finished
 logging.info("Discord Backup Script Completed")
