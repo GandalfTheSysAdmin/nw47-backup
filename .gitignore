@@ -5,6 +5,6 @@ backups/
 dist
 main.spec
 .env
-backup_log.txt
+backup_log*.txt
 discord_backup.log
 .DS_Store
