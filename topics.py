@@ -47,6 +47,14 @@ TOPICS = {
 	'wall-street-bets': '1153043405123891281', 
 	'everything-organics': '1245817702086475826',
 	'water-quality': '1236483927164330025',
+	'harvest-curing': '1225374961353203762',
+	'tissue-culture': '1233514722544234567',
+	'pheno-hunting': '1217893546672939028',
+	'environmental-control': '1226538742649987153',
+	'hydroponics': '1227653831255277578',
+	'plant-analysis': '1233841975323942943',
+	'medical-applications': '1243967354269286400',
+	'cannabis-news': '1245817750462111804',
 }
 
 
