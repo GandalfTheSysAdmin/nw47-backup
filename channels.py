@@ -73,6 +73,7 @@ CHANNELS = {
     'groundbreaking-seed-group': '1159230635915882607',
     'groundbreaking-breeder': '1165770434998968420',
     'groundbreaking-stardust': '1263578987981045954',
+    'raw-genetics-zone': '1334627884937121895',
     # Add more channels here
 }
 
