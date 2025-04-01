@@ -68,6 +68,11 @@ CHANNELS = {
     'tds-farm-friend': '1195461323174187089',
     'blesscoast-shade-trees': '1152728582997684337',
     'blackbird-dirty-bird': '1152951045333450833',
+    'terpfiend-test': '1281325179439415327',
+    'groundbreaking-vortex': '1152947900767289404',
+    'groundbreaking-seed-group': '1159230635915882607',
+    'groundbreaking-breeder': '1165770434998968420',
+    'groundbreaking-stardust': '1263578987981045954',
     # Add more channels here
 }
 
