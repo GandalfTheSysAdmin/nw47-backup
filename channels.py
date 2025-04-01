@@ -60,6 +60,12 @@ CHANNELS = {
     'dragonsoul': '1168256674868785213',
     'alien-tahoe': '1197605228175618059',
     'alien-cookies': '1197605277993713716',
+    
+    # Breeder-specific channels
+    'pnw-roots': '1303027777221562440',
+    'thunder-fudge-genetics': '1300233673894920285',
+    'twodogseeds-channel1': '1152744696305688647',
+    'twodogseeds-channel2': '1195461323174187089',
     # Add more channels here
 }
 
