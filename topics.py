@@ -30,16 +30,23 @@ TOPICS = {
 	'edibles': '1153032189437542561',
 	'podcast-suggestions': '1157401550050820136',
 	'gaming': '1153031305257299991',
+	'grow-room-designs': '1264837522109505566',
 	'indoor-growing': '1152724355432853534',
-	'pest-management': '1153031886583644173',
-	'propagation-tech': '1153034060264902656',
-    'science': '1166422305069600870',
 	'lighting': '1153033640519946414',
 	'natural-farming': '1152724626368122971',
+	'nutrient-questions': '1213943257725976666',
+	'outdoor-growing': '1225374961353203762',
+	'pest-management': '1153031886583644173',
+	'propagation-tech': '1153034060264902656',
+	'recipes': '1238201547543138334',
+	'science': '1166422305069600870',
+	'seed-making': '1233514722544234567',
+	'soil-recipes': '1217893546672939028',
 	'strains': '1153233929411768370', 
+	'training-methods': '1219642783549485137',
 	'wall-street-bets': '1153043405123891281', 
 	'everything-organics': '1245817702086475826',
-    # Add more topics here
+	'water-quality': '1236483927164330025',
 }
 
 
