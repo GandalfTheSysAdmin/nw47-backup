@@ -74,6 +74,8 @@ CHANNELS = {
     'groundbreaking-breeder': '1165770434998968420',
     'groundbreaking-stardust': '1263578987981045954',
     'raw-genetics-zone': '1334627884937121895',
+    'twotonewilly-paranoia': '1152951764140699720',
+    'matchmaker-pakalolos': '1352427672390602914',
     # Add more channels here
 }
 
