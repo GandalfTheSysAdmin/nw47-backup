@@ -66,6 +66,8 @@ CHANNELS = {
     'thunder-fudge-testing': '1300233673894920285',
     'twodog-seeds-joint': '1152744696305688647',
     'tds-farm-friend': '1195461323174187089',
+    'blesscoast-shade-trees': '1152728582997684337',
+    'blackbird-dirty-bird': '1152951045333450833',
     # Add more channels here
 }
 
