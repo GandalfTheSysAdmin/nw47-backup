@@ -23,6 +23,12 @@ License: MIT License
 """
 
 TOPICS = {
+    'rules': '1153866812333772841',
+    'announcements': '1155236354356162561',
+    'introductions': '1156607130359570462',
+    'recorded-breeder-casts': '1153038103183884409',
+    'instagram-tags': '1156607375327907891',
+    'support-the-nw47': '1208218273389219850',
 	'automation': '1152724568788713502',
 	'breeding': '1161819028050948097',
 	'cannabis-info-files': '1152724428170481744',
@@ -42,9 +48,9 @@ TOPICS = {
 	'science': '1166422305069600870',
 	'seed-making': '1233514722544234567',
 	'soil-recipes': '1217893546672939028',
-	'strains': '1153233929411768370', 
+	'strains': '1153233929411768370',
 	'training-methods': '1219642783549485137',
-	'wall-street-bets': '1153043405123891281', 
+	'wall-street-bets': '1153043405123891281',
 	'everything-organics': '1245817702086475826',
 	'water-quality': '1236483927164330025',
 	'harvest-curing': '1225374961353203762',
@@ -55,6 +61,16 @@ TOPICS = {
 	'plant-analysis': '1233841975323942943',
 	'medical-applications': '1243967354269286400',
 	'cannabis-news': '1245817750462111804',
+    'thunderdome-text-chat': '1152655298478219417',
+    'ai-photos-and-text-walls': '1152954757925847130',
+    'breeder-cast-guest-suggestions': '1170800782489165974',
+    'are-you-a-breeder': '1165770601588342785',
+    'meeting-room': '1164654895169802341',
+    'nw47-top40-songs-by-tardis': '1279527763082088448',
+    'new-blood': '1299840571686387834',
+    '710-nw47-event': '1346581496974016675',
+    'breedercast-bts': '1331072147480776795',
+    'green-room-textchat': '1153863045731319828',
 }
 
 

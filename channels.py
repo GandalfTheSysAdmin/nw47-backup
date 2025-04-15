@@ -60,7 +60,7 @@ CHANNELS = {
     'dragonsoul': '1168256674868785213',
     'alien-tahoe': '1197605228175618059',
     'alien-cookies': '1197605277993713716',
-    
+
     # Breeder-specific channels
     'pacific-nw-roots': '1303027777221562440',
     'thunder-fudge-testing': '1300233673894920285',
@@ -76,6 +76,32 @@ CHANNELS = {
     'raw-genetics-zone': '1334627884937121895',
     'twotonewilly-paranoia': '1152951764140699720',
     'matchmaker-pakalolos': '1352427672390602914',
+    'flowerbountyfarms-Bountifuldiscussions': '1152951889596534895',
+    'flowerbountyfarms-FarmDetails': '1153038291369726115',
+    'flowerbountyfarms-BreedingConceptsGoals': '1153039681655677089',
+    'cascadiangrown-ShootingtheBreeze': '1153030997735129189',
+    'cascadiangrown-bubba-nl': '1237950190955270154',
+    'cascadiangrown-PeachRingzXcitrisCake': '1340525588611596360',
+    'cascadiangrown-CascadianDreams': '1237951566481195150',
+    'gonzogenetix-Apollo13': '1161103969779724349',
+    'gonzogenetix-ExodusCheeseXblueSatellite': '1169809282779316266',
+    'gonzogentetix-WhatHappening': '1175594815971401748',
+    'reborngentetics-RebirthCanal': '1163496210158604458',
+    'reborngenetics-CelestialRift': '1163504763057479702',
+    'tnmtnglass-GlassPics': '1315088584407257128',
+
+    # Administrative Channels
+    'admin-and-mods': '1151696171178401812',
+    'bot-talk': '1153038371657093161',
+    'mod-log': '1153038400841068554',
+
+    # Archive
+    'dragons-lair': '1152946002874085426',
+    'twodog-lemonhoko-dueling-dogs': '1226689415040995441',
+    'dude-grows-show-meet-up': '1232049327451537608',
+    'loompa-farms': '1152951926787420160',
+
+
     # Add more channels here
 }
 
